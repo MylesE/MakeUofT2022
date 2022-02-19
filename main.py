@@ -8,11 +8,16 @@ from api_call import *
 
 def getAlbumURI(sensor):
         uri = "s"
-        for i in range(6,15):
-            data = sensor.ntag2xx_read_block(i)
-            uri += codecs.decode(data, 'UTF-8')
-        uri += str(sensor.ntag2xx_read_block(15))[12:14]
-        return uri
+        try:
+            for i in range(6,15):
+                data = sensor.ntag2xx_read_block(i)
+                uri += codecs.decode(data, 'UTF-8')
+            uri += str(sensor.ntag2xx_read_block(15))[12:14]
+            return uri
+        except:
+            return str(sensor.ntag2xx_read_block(6))[13:15]
+            for j in range(6,15):
+                print(str(sensor.ntag2xx_read_block(j)))
     
 
 if __name__ == '__main__':
@@ -49,7 +54,7 @@ if __name__ == '__main__':
             printMsg = True
             doAction(uri)
             #playAlbum(uri)
-            time.sleep(2)
+            time.sleep(1)
         
     except Exception as e:
         print(e)
