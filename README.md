@@ -1,2 +1,8 @@
 # MakeUofT2022
-Spotify Jukebox (name subject to change)
+Spotify Jukebox
+
+# Team Members:
+Aryan Kaushik
+Karen Wang
+Kanav Madhura
+Myles Esteban
